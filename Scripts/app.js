@@ -45,8 +45,6 @@
             )
         }
 
-
-
         function displayProductsPage()
         {
             console.log("Called Displayed Products Page.");
