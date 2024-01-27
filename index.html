@@ -2,66 +2,115 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <meta content="ie=edge" http-equiv="X-UA-Compatible">
-        <title>Home</title>
-        <link href="Content/app.css" rel="stylesheet">
-        <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link href="./node_modules/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
+        <title>Homepage</title>
+        <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./node_modules/@fortawesome/fontawesome-free/css/all.css">
+        <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="./Content/style.css">
     </head>
     <body>
         <header>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="">
-                    <i class="fa-solid fa-building"></i> INFT 2202 </a>
-                <button
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
-                    class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+                <a style="margin-left: 25px; font-style: italic;" class="navbar-brand" href="./index.html"><b>Harmony Hub</b></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="index.html">
-                                <i class="fa-solid fa-house"></i>
-                                <span class="hover-text">Home</span>
-                                <span class="sr-only">(current)</span>
-                            </a>
+                            <a class="nav-link" href="./index.html">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="product.html">
-                                <i class="fa-solid fa-wrench"></i> Products
-                            </a>
+                            <a class="nav-link" href="./portfolio.html">Portfolio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="service.html">
-                                <i class="fa-solid fa-bell-concierge"></i> Services
-                            </a>
+                            <a class="nav-link" href="./services.html">Services</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="about.html">
-                                <i class="fa-solid fa-address-card"></i> About Us
-                            </a>
+                            <a class="nav-link" href="./team.html">Team</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="contact.html">
-                                <i class="fa-solid fa-phone"></i> Contact Us
-                            </a>
+                            <a class="nav-link" href="./blog.html">Blog</a>
                         </li>
                     </ul>
                 </div>
             </nav>
         </header>
-    <main>
-        <br>
-        <h1>Welcome to our Site</h1>
-        <p style="text-align: center">
-            Ramiyan Gangatharan - Durham College
-        </p>
-        <a href="./about.html"><button class="btn btn-primary" id="AboutUsBTN">About Us</button></a>
-    </main>
-    <script src="./Scripts/app.js"></script>
-    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <main>
+            <div class="welcome-text">
+                <h1>Welcome to The Harmony Hub</h1>
+                <p style="text-align: center">Discover, Learn, and Connect with Your Community</p>
+            </div>
+
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-images">
+                        <img src="./Images/community-events-ideas.jpg" height="450" width="800" alt="Community Event">
+                        <img src="./Images/CVPRW2023_EventVision_group_picture.jpg" height="450" width="800" alt="Workshop">
+                        <img src="./Images/PWC_OFFICE.webp" height="450" width="800" alt="Group Activity">
+                        <img src="./Images/networking.jpg" height="450" width="800" alt="Networking">
+                        <img src="./Images/cup-team-photo-2023-2.png" height="450" width="800" alt="Campus">
+                    </div>
+                    <!-- Separate Container for Descriptions -->
+                    <div class="carousel-descriptions">
+                        <div class="description" style="display: block;">
+                            <p class="text-md-center">
+                                Join the Harmony Hub community for our vibrant outdoor <br>
+                                tailgate parties! Enjoy great food, lively conversations, <br>
+                                and a chance to bond over shared interests.
+                            </p>
+                        </div>
+                        <div class="description">
+                            <p class="text-md-center">
+                                Meet our dedicated team at Harmony Hub! A diverse group <br>
+                                of passionate individuals committed to fostering learning, <br>
+                                innovation, and community spirit.
+                            </p>
+                        </div>
+                        <div class="description">
+                            <p class="text-md-center">
+                                Collaborate on community-driven projects at Harmony Hub, <br>
+                                where we strategize to innovate and enhance our services <br>
+                                for all age groups and backgrounds.
+                            </p>
+
+                        </div>
+                        <div class="description">
+                            <p class="text-md-center">
+                                Expand your professional and social horizons at Harmony <br>
+                                Hub's networking events, where members connect, collaborate, <br>
+                                and create lasting relationships.
+                            </p>
+                        </div>
+                        <div class="description">
+                            <p class="text-md-center">
+                                Meet our Harmony Hub family! This group photo captures the heart <br>
+                                of our community: a diverse team of educators, volunteers, and <br>
+                                staff who are the driving force behind our enriching workshops, <br>
+                                classes, and events. Each member brings their unique talents <br>
+                                and perspectives, contributing to a shared mission of lifelong <br>
+                                learning and community engagement.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer style="text-align: center; color: white">
+            <p>
+                &copy; <a style="color: white" href="https://github.com/RamiyanGangatharan">Ramiyan Gangatharan</a> -
+                <a style="color: white" href="https://github.com/OhJeezJoy">Joy Tejada</a> - Durham College
+            </p>
+            <div style="text-align: center; margin-bottom: 20px;">
+                <a class="nav-link" href="./privacy_policy.html" style="display: inline-block; margin-right: 20px;">Privacy Policy</a>
+                <a class="nav-link" href="./TOS.html" style="display: inline-block; margin-right: 20px;">Terms of Service</a>
+                <a class="nav-link" href="./contact.html" style="display: inline-block;">Contact Us</a>
+            </div>
+        </footer>
+        <script src="./Scripts/main.js"></script>
+        <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     </body>
 </html>
