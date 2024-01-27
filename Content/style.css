@@ -98,13 +98,15 @@ footer
     max-width: 90%; /* Prevents the carousel from becoming too wide */
 }
 
-.carousel-container {
+.carousel-container
+{
     display: flex;
     justify-content: center;
     width: 100%; /* Ensures the container spans the full width of its parent */
 }
 
-.carousel-caption {
+.carousel-caption
+{
     background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
     color: white; /* White text */
     padding: 10px; /* Some padding */
@@ -112,12 +114,14 @@ footer
     bottom: 10%; /* Position from the bottom of the carousel item */
 }
 
-.carousel-descriptions {
+.carousel-descriptions
+{
     text-align: center;
     margin-top: 20px; /* Adjust as needed */
 }
 
-.description {
+.description
+{
     display: none;
     color: white;
     background-color: rgba(0, 0, 0, 0.5);
@@ -126,7 +130,8 @@ footer
 }
 
 
-.description:first-child {
+.description:first-child
+{
     display: block;
 }
 
@@ -146,7 +151,8 @@ footer
     background-color: white;
 }
 
-.welcome-text {
+.welcome-text
+{
     position: relative;
     margin-top: 20px;
     color: white;
@@ -161,20 +167,24 @@ footer
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-#servicesAccordion .card .card-header {
+#servicesAccordion .card .card-header
+{
     padding: 0.75rem 1.25rem; /* Adjust padding as needed */
     background-color: #f8f9fa; /* Light grey background */
     border-bottom: 1px solid #e3e6f0;
 }
 
-#servicesAccordion .card .card-body {
+#servicesAccordion .card .card-body
+{
     padding: 1rem;
 }
 
-#servicesAccordion .collapse.show {
+#servicesAccordion .collapse.show
+{
     max-height: none; /* Ensures the content determines the height */
     max-width: 100%;
 }
-#servicesAccordion .collapse {
+#servicesAccordion .collapse
+{
     transition: max-height 2s ease; /* Smooth transition for expanding and collapsing */
 }

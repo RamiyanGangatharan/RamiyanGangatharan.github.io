@@ -1,22 +1,43 @@
-"use strict";
+/**
+ * @author: Ramiyan Gangatharan
+ * Student ID: 100835223
+ * @date: January 27, 2024
+ */
 
-function Start() {
+
+"use strict";
+/**
+ * Initializes the application, sets up the carousel, and loads initial projects.
+ */
+function Start()
+{
     console.log("App Started!");
     initializeCarousel();
     loadProjects();
 }
 
-function initializeCarousel() {
+// CAROUSEL
+/**
+ * Initializes the carousel functionality, setting up the rotation of images and their corresponding descriptions.
+ */
+function initializeCarousel()
+{
     // Carousel
     let index = 0;
     const slides = document.querySelectorAll(".carousel-images img");
     const descriptions = document.querySelectorAll(".carousel-descriptions .description");
 
-    function showSlide(n) {
+    /**
+     * Displays the slide and its corresponding description based on the current index.
+     * @param {number} n - The number to add to the current index to determine the next slide to display.
+     */
+    function showSlide(n)
+    {
         if (n >= slides.length) index = 0;
         if (n < 0) index = slides.length - 1;
 
-        for (let i = 0; i < slides.length; i++) {
+        for (let i = 0; i < slides.length; i++)
+        {
             slides[i].style.display = "none";
             descriptions[i].style.display = "none"; // Hide all descriptions
         }
@@ -25,20 +46,33 @@ function initializeCarousel() {
         descriptions[index].style.display = "block"; // Show the matching description
     }
 
-    function moveSlide(n) {
-        showSlide(index += n);
-    }
+    /**
+     * Advances the carousel to the next or previous slide.
+     * This function updates the current slide index and ensures the carousel displays the correct slide.
+     * If the end of the slide array is reached, it loops back to the beginning, and vice versa.
+     *
+     * @param {number} n - The number of slides to move. Positive to advance, negative to go back.
+     * @example
+     * // Advances to the next slide
+     * moveSlide(1);
+     *
+     * // Moves back to the previous slide
+     * moveSlide(-1);
+     */
+    function moveSlide(n) {showSlide(index += n);}
 
     showSlide(index); // Initialize the first slide
     setInterval(() => { moveSlide(1); }, 5000); // Change slides every 5 seconds
 }
 
-// Portfolio projects functionality
+// PORTFOLIO
+/**
+ * Event listener for DOMContentLoaded event to ensure that the DOM is fully loaded before initializing project-related functionalities.
+ */
 document.addEventListener('DOMContentLoaded', function() {
     const projectsContainer = document.getElementById('projects-container');
     const loadMoreButton = document.getElementById('loadMore');
 
-    // Sample list of projects with fake data
     let projects =
     [
         {
@@ -73,13 +107,22 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     ];
 
-    // Function to create project card
-    function createProjectCard(project) {
+    /**
+     * Creates an HTML card element containing project details.
+     * @param {Object} project - The project data.
+     * @param {string} project.title - The title of the project.
+     * @param {string} project.description - A brief description of the project.
+     * @param {string} project.imageUrl - The URL of the project's image.
+     * @returns {HTMLElement} The project card element.
+     */
+    function createProjectCard(project)
+    {
         let card = document.createElement('div');
         card.className = 'col-lg-4 col-md-6 mb-4';
         card.innerHTML = `
             <div class="card h-100">
-                <img style="margin-top: 15px; height: 250px" src="${project.imageUrl}" class="card-img-top" alt="${project.title}">
+                <img style="margin-top: 15px; height: 250px" 
+                    src="${project.imageUrl}" class="card-img-top" alt="${project.title}">
                 <div class="card-body">
                     <h5 class="card-title">${project.title}</h5>
                     <p class="card-text">${project.description}</p>
@@ -89,26 +132,23 @@ document.addEventListener('DOMContentLoaded', function() {
         return card;
     }
 
-    // Function to load projects
-    function loadProjects(numProjects = 3) {
-        let projectsToLoad = projects.splice(0, numProjects); // Splice modifies the original array
-        projectsToLoad.forEach(project => {
-            projectsContainer.appendChild(createProjectCard(project));
-        });
-
-        if (projects.length === 0) {
-            loadMoreButton.disabled = true;
-        }
+    /**
+     * Loads a specified number of projects from the projects array and appends them to the projects container.
+     * If there are no more projects to load, disables the 'Load More' button.
+     * @param {number} [numProjects=3] - The number of projects to load each time the function is called.
+     */
+    function loadProjects(numProjects = 3)
+    {
+        let projectsToLoad = projects.splice(0, numProjects);
+        projectsToLoad.forEach(project => {projectsContainer.appendChild(createProjectCard(project));});
+        if (projects.length === 0) {loadMoreButton.disabled = true;}
     }
 
     // Initial load of projects
     loadProjects();
 
     // Event listener for 'Load More' button
-    loadMoreButton.addEventListener('click', function() {
-        loadProjects(); // Load more projects
-    });
+    loadMoreButton.addEventListener('click', function() {loadProjects();});
 });
 
-// Ensure the Start function is called when the window is loaded
 window.addEventListener("load", Start);
