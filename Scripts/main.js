@@ -18,11 +18,18 @@ function Start() {
         case "Team":
             displayModal();
             break;
+        case "Register":
+            displayRegisterPage();
+            break;
+        case "Login":
+            displayLoginPage();
+            break;
     }
 
     loadHeader(); // Load the header
     loadFooter(); // Load the footer
 }
+
 
 window.addEventListener("load", Start);
 // CAROUSEL
@@ -236,8 +243,6 @@ function AJAX_REQUEST(method, url, callback)
 
     // Step 3: send XHR request
     xhr.send();
-
-
 }
 // Function to load the header
 function loadHeader() {
@@ -339,4 +344,248 @@ function fetchFactOfTheDay() {
             console.error('Error fetching fact of the day:', jqXHR.responseText || 'Unknown error');
         }
     });
+}
+/**
+ * Checks if a user is logged in
+ * @constructor
+ */
+function CheckLogin(){
+    if(localStorage.length > 0){
+        $("#login").html(`<a id="logout" class="nav-link" href="#">
+                    <i class="fas fa-sign-out-alt"></i> Logout</a>`);
+
+        let keys = Object.keys(localStorage);
+
+        // Writes the users name if they are logged in on the homepage
+        for(const key of keys){
+            if(key === "users"){
+                let userData = localStorage.getItem(key);
+                let usersName = userData.split(",")
+                $("#name").html(`<h1 id="name">Welcome ${usersName[0]} to The Harmony Hub</h1>`)
+            }
+        }
+    }
+
+    $("#logout").on("click", function (){
+        // Preform Logout
+        localStorage.clear();
+
+        // Redirect to login.html page
+        location.href = "login.html";
+    });
+}
+
+/**
+ * Regular expressions to help validate the register form
+ */
+function RegisterFormValidation(){
+    // Call for First Name
+    ValidateField("#firstName",
+        /^([A-Z][a-z]{1,3}\.?\s)?([A-Z][a-z]+)+([\s,-]([A-z][a-z]+))*$/,
+        "Please enter a valid First Name.");
+
+    // Call for Last Name
+    ValidateField("#lastName",
+        /^([A-Z][a-z]{1,3}\.?\s)?([A-Z][a-z]+)+([\s,-]([A-z][a-z]+))*$/,
+        "Please enter a valid Last Name.");
+
+    // Call for Address
+    // Taken from https://regex101.com/library/CtqxiP?filterFlavors=javascript&orderBy=MOST_RECENT&search=
+    ValidateField("#address",
+        /^(?![ -.&,_'":?!/])(?!.*[- &_'":]$)(?!.*[-.#@&,:?!/]{2})[a-zA-Z0-9- .#@&,_'":.?!/]+$/,
+        "Please enter a valid Address.")
+
+    // Call for Phone Number
+    ValidateField("#phoneNumber",
+        /^(\+\d{1,3}[\s-.])?\(?\d{3}\)?[\s-.]?\d{3}[\s-.]\d{4}$/,
+        "Please enter a valid Contact Number.");
+
+    // Call for Email Address
+    ValidateField("#emailAddress",
+        /^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]{2,10}$/,
+        "Please enter a valid Email Address!");
+
+
+}
+
+/**
+ * Validate Form Fields provided by users
+ * @param input_field_id
+ * @param regular_expression
+ * @param error_message
+ */
+function ValidateField(input_field_id, regular_expression, error_message){
+    let messageArea = $("#messageArea").hide();
+
+    $(input_field_id).on("blur", function(){
+        let inputFieldText = $(this).val();
+        if(!regular_expression.test(inputFieldText)){
+            $(this).trigger("focus").trigger("select");
+
+            messageArea.addClass("alert alert-danger").text(error_message).show();
+        }else{
+            // Full name was successful
+            messageArea.removeAttr("class").hide();
+        }
+    });
+}
+
+/**
+ * The Register Page
+ * When the form is submitted after validation, will check if username already exists,
+ * and if the passwords are the same.
+ */
+function displayRegisterPage(){
+    console.log("Called RegisterPage");
+
+    RegisterFormValidation();
+
+    $("#sendButton").on("click", function (){
+        let firstName = document.getElementById("firstName");
+        let lastName = document.getElementById("lastName");
+        let address = document.getElementById("address");
+        let phoneNumber = document.getElementById("phoneNumber");
+        let emailAddress = document.getElementById("emailAddress");
+        let username = document.getElementById("username");
+        let password = document.getElementById("password");
+        let confirmPassword = document.getElementById("confirmPassword");
+
+        let success = true;
+        let newUser = new core.User();
+        let messageArea = $("#messageArea").hide();
+
+        $.get("../../data/user.json", function(data){
+            for(const user of data.users){
+                // Check if username doesn't exist and if the passwords match
+                if(username.value === user.Username){
+                    success = false;
+                    console.log("true");
+                    break;
+                }
+            }
+            if(success === true && password.value === confirmPassword.value){
+                newUser.toJSON(firstName, lastName, address, phoneNumber, emailAddress, username, password);
+
+                // Add user to session storage
+                sessionStorage.setItem("users", newUser.serialize());
+                messageArea.removeAttr("class").hide();
+
+                location.href = "../../index.html";
+            }else{
+                // username exists or passwords don't match
+                $("#username").trigger("focus").trigger("select");
+                messageArea.addClass("alert alert-danger").text("ERROR: Username Taken or Passwords do not match.").show();
+            }
+        });
+    });
+}
+
+/**
+ * Displays the login page
+ * Authentication if the users Login Credentials are accurate to the data stored
+ * Shows error messages if there is an error
+ */
+function displayLoginPage(){
+    console.log("Called Displayed Login Page.");
+
+    let messageArea = $("#messageArea").hide();
+
+    $("#submitButton").on("click", function(){
+        let username = document.getElementById("username");
+        let password = document.getElementById("password");
+
+        let success = false;
+        let newUser = new core.User();
+
+        $.get("../../data/user.json", function(data){
+            for(const user of data.users){
+                // Check if the username and password
+                if(username.value === user.Username && password.value === user.Password){
+                    newUser.fromJSON(user);
+                    success = true;
+                    break;
+                }
+            }
+            if(success === true){
+                // Add user to session storage
+                localStorage.setItem("users", newUser.serialize());
+                messageArea.removeAttr("class").hide();
+
+                // Redirect user to secure area of the site.
+                location.href = "../../index.html";
+            }else{
+                // They do not match
+                $("#username").trigger("focus").trigger("select");
+                messageArea.addClass("alert alert-danger").text("Error: Invalid Login Credentials").show();
+            }
+        });
+    });
+
+    $("#cancelButton").on("click", function(){
+        location.href = "../../index.html";
+    });
+}
+
+// Gallery Model
+// Open the Modal
+function openModal() {
+    document.getElementById("myModal").style.display = "block";
+}
+
+// Close the Modal
+function closeModal() {
+    document.getElementById("myModal").style.display = "none";
+}
+
+let slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+    showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+    showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    let dots = document.getElementsByClassName("demo");
+    let captionText = document.getElementById("caption");
+    if (n > slides.length) {
+        slideIndex = 1
+    }
+    if (n < 1) {
+        slideIndex = slides.length
+    }
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " active";
+    captionText.innerHTML = dots[slideIndex-1].alt;
+}
+
+// getting feedback asynchronously with Ajax
+function AjaxFeedback(){
+    let xhr = new XMLHttpRequest();
+    let feedback = document.getElementById("feedback")
+
+    xhr.open("GET", "../../views/content/contact.html", true);
+
+    xhr.addEventListener("readystatechange", () => {
+        if(xhr.readyState === 4 && xhr.status === 200){
+            if(feedback !== null)
+                sessionStorage.setItem("feedback", feedback.value)
+            location.href = "../../index.html";
+        }
+    });
+
+    xhr.send();
 }
