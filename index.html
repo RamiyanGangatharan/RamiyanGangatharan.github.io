@@ -3,82 +3,82 @@
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Homepage</title>
-        <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-        <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
-        <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="Content/style.css">
-    </head>
-    <body>
-        <header id="site-header"></header>
+<head>
+    <meta charset="UTF-8">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Content/style.css">
+</head>
+<body>
+<header id="site-header"></header>
 
-        <main>
-            <div class="welcome-text">
-                <h1>Welcome to The Harmony Hub</h1>
-                <p style="text-align: center">Discover, Learn, and Connect with Your Community</p>
+<main>
+    <div class="welcome-text">
+        <h1 id="name">Welcome to The Harmony Hub</h1>
+        <p style="text-align: center">Discover, Learn, and Connect with Your Community</p>
+    </div>
+
+    <div class="carousel-container">
+        <div class="carousel">
+            <div class="carousel-images">
+                <img src="Images/community-events-ideas.jpg" height="450" width="800" alt="Community Event">
+                <img src="Images/CVPRW2023_EventVision_group_picture.jpg" height="450" width="800" alt="Workshop">
+                <img src="Images/PWC_OFFICE.webp" height="450" width="800" alt="Group Activity">
+                <img src="Images/networking.jpg" height="450" width="800" alt="Networking">
+                <img src="Images/cup-team-photo-2023-2.png" height="450" width="800" alt="Campus">
             </div>
+            <!-- Separate Container for Descriptions -->
+            <div class="carousel-descriptions">
+                <div class="description" style="display: block;">
+                    <p class="text-md-center">
+                        Join the Harmony Hub community for our vibrant outdoor <br>
+                        tailgate parties! Enjoy great food, lively conversations, <br>
+                        and a chance to bond over shared interests.
+                    </p>
+                </div>
+                <div class="description">
+                    <p class="text-md-center">
+                        Meet our dedicated team at Harmony Hub! A diverse group <br>
+                        of passionate individuals committed to fostering learning, <br>
+                        innovation, and community spirit.
+                    </p>
+                </div>
+                <div class="description">
+                    <p class="text-md-center">
+                        Collaborate on community-driven projects at Harmony Hub, <br>
+                        where we strategize to innovate and enhance our services <br>
+                        for all age groups and backgrounds.
+                    </p>
 
-            <div class="carousel-container">
-                <div class="carousel">
-                    <div class="carousel-images">
-                        <img src="Images/community-events-ideas.jpg" height="450" width="800" alt="Community Event">
-                        <img src="Images/CVPRW2023_EventVision_group_picture.jpg" height="450" width="800" alt="Workshop">
-                        <img src="Images/PWC_OFFICE.webp" height="450" width="800" alt="Group Activity">
-                        <img src="Images/networking.jpg" height="450" width="800" alt="Networking">
-                        <img src="Images/cup-team-photo-2023-2.png" height="450" width="800" alt="Campus">
-                    </div>
-                    <!-- Separate Container for Descriptions -->
-                    <div class="carousel-descriptions">
-                        <div class="description" style="display: block;">
-                            <p class="text-md-center">
-                                Join the Harmony Hub community for our vibrant outdoor <br>
-                                tailgate parties! Enjoy great food, lively conversations, <br>
-                                and a chance to bond over shared interests.
-                            </p>
-                        </div>
-                        <div class="description">
-                            <p class="text-md-center">
-                                Meet our dedicated team at Harmony Hub! A diverse group <br>
-                                of passionate individuals committed to fostering learning, <br>
-                                innovation, and community spirit.
-                            </p>
-                        </div>
-                        <div class="description">
-                            <p class="text-md-center">
-                                Collaborate on community-driven projects at Harmony Hub, <br>
-                                where we strategize to innovate and enhance our services <br>
-                                for all age groups and backgrounds.
-                            </p>
-
-                        </div>
-                        <div class="description">
-                            <p class="text-md-center">
-                                Expand your professional and social horizons at Harmony <br>
-                                Hub's networking events, where members connect, collaborate, <br>
-                                and create lasting relationships.
-                            </p>
-                        </div>
-                        <div class="description">
-                            <p class="text-md-center">
-                                Meet our Harmony Hub family! This group photo captures the heart <br>
-                                of our community: a diverse team of educators, volunteers, and <br>
-                                staff who are the driving force behind our enriching workshops, <br>
-                                classes, and events. Each member brings their unique talents <br>
-                                and perspectives, contributing to a shared mission of lifelong <br>
-                                learning and community engagement.
-                            </p>
-                        </div>
-                    </div>
+                </div>
+                <div class="description">
+                    <p class="text-md-center">
+                        Expand your professional and social horizons at Harmony <br>
+                        Hub's networking events, where members connect, collaborate, <br>
+                        and create lasting relationships.
+                    </p>
+                </div>
+                <div class="description">
+                    <p class="text-md-center">
+                        Meet our Harmony Hub family! This group photo captures the heart <br>
+                        of our community: a diverse team of educators, volunteers, and <br>
+                        staff who are the driving force behind our enriching workshops, <br>
+                        classes, and events. Each member brings their unique talents <br>
+                        and perspectives, contributing to a shared mission of lifelong <br>
+                        learning and community engagement.
+                    </p>
                 </div>
             </div>
-        </main>
+        </div>
+    </div>
+</main>
 
-        <footer id="site-footer"  style="text-align: center; color: white"></footer>
+<footer id="site-footer"  style="text-align: center; color: white"></footer>
 
-        <script src="Scripts/main.js"></script>
-        <script src="node_modules/jquery/dist/jquery.min.js"></script>
-        <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    </body>
+<script src="Scripts/main.js"></script>
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
 </html>

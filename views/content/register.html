@@ -1,0 +1,78 @@
+<!--
+Author: Joy Tejada (100883359)
+Date: 2024-02-24
+File Name: register.html
+Description: Form for new users to register for an account
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<!-- Title and Style Sheet -->
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../node_modules/@fortawesome/fontawesome-free/css/all.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../Content/style.css">
+</head>
+<body>
+<!-- Header and Nav Bar -->
+<header id="site-header"></header>
+<!-- Main -->
+<main>
+    <div id="Header_1">
+        <h1>Register</h1>
+        <div class = "row justify-content-lg-center g-3">
+        </div><br>
+    </div>
+    <div id="messageArea"></div>
+    <div>
+        <!-- Form -->
+        <form>
+            <div class="input-group mb-3">
+                <input id="firstName" name="firstName" type="text" class="form-control" required
+                       value="" placeholder="First Name">
+                <input id="lastName" name="lastName" type="text" class="form-control" required
+                       value="" placeholder="Last Name">
+            </div>
+            <div class="input-group mb-3">
+                <input id="username" name="username" type="text" class="form-control" required
+                       value="" placeholder="Username">
+                <input id="address" name="address" type="text" class="form-control" required
+                       value="" placeholder="Address">
+            </div>
+            <div class="input-group mb-3">
+                <input id="emailAddress" name="emailAddress" type="email" class="form-control" required
+                       value="" placeholder="Email Address">
+                <input id="phoneNumber" name="phoneNumber" type="text" class="form-control" required
+                       value="" placeholder="Phone Number">
+            </div>
+            <div class="input-group mb-3">
+                <input id="password" name="password" type="password" class="form-control" required
+                       value="" placeholder="Password">
+            </div>
+            <div class="input-group mb-3">
+                <input id="confirmPassword" name="confirmPassword" type="password" class="form-control" required
+                       value="" placeholder="Confirm Password">
+            </div>
+            <!-- Button -->
+            <div>
+                <button id="sendButton" type="button" class="btn btn-primary"> Register</button>
+            </div>
+        </form>
+        <p class="text-center text-muted small">
+            <b style="color: white">Already have an account?
+                <a href="login.html" style="color: white">Sign in</a></b>
+        </p>
+    </div>
+</main>
+
+<footer id="site-footer"  style="text-align: center; color: white"></footer>
+<script src="../../Scripts/namespace.js"></script>
+<script src="../../Scripts/user.js"></script>
+<script src="../../Scripts/main.js"></script>
+<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
