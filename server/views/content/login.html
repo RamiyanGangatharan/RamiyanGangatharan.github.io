@@ -1,0 +1,70 @@
+<!-- Author: Ramiyan Gangatharan, February 24, 2024 -->
+<!-- Assignment 2 - Web Development Client Side Scripting -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link href="../../../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../../node_modules/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+    <link href="../../../client/content/style.css" rel="stylesheet">
+</head>
+<body class="d-flex flex-column min-vh-100">
+<header id="site-header"></header>
+<main class="flex-fill" id="mainContent">
+    <div>
+        <div>
+            <div class="login" id="contentArea">
+                <h1 class="display-4">Login</h1>
+                <div id="messageArea"></div>
+                <form id="loginForm" novalidate>
+                    <div class="form-group">
+                        <div class="input-group">
+                              <span class="input-group-addon">
+                                <i class="fa fa-user" style="margin-right: 10px">
+                                </i>
+                              </span>
+                            <label for="username">
+                            </label>
+                            <input class="form-control" id="username" name="username" placeholder="Enter your username"
+                                   required
+                                   type="text" value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                              <span class="input-group-addon">
+                                <i class="fa fa-lock" style="margin-right: 10px">
+                                </i>
+                              </span>
+                            <label for="password">
+                            </label>
+                            <input class="form-control" id="password" name="password" placeholder="Enter your password"
+                                   required
+                                   type="password" value="">
+                        </div>
+                    </div>
+                    <div class="text-right" style="margin-left: 70px">
+                        <button class="btn btn-primary btn-lg" id="submitButton" type="button">Login</button>
+                        <button class="btn btn-warning" id="cancelButton" type="button">cancel</button>
+                    </div>
+                </form>
+                <p class="text-center text-muted small">
+                    <b style="color: white">Don't have an account?
+                        <a href="register.html" style="color: white">Register Here!</a></b>
+                </p>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer id="site-footer" style="text-align: center; color: white"></footer>
+<script src="../../../client/scripts/namespace.ts"></script>
+<script src="../../../client/scripts/user.js"></script>
+<script src="../../../client/scripts/main.js"></script>
+<script src="../../../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

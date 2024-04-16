@@ -1,0 +1,56 @@
+<!--
+Author: Joy Tejada (100883359)
+Date: 2024-01-27
+File Name: blog.html
+Description: This page is used to display articles
+-->
+<!DOCTYPE html>
+<html lang="en">
+<!-- Title and style sheets -->
+<head>
+    <meta charset="UTF-8">
+    <title>Blog</title>
+    <link href="../../../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../../node_modules/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+    <link href="../../../client/content/style.css" rel="stylesheet">
+</head>
+<body class="d-flex flex-column min-vh-100">
+<!-- Header and Nav Bar -->
+<header id="site-header"></header>
+<!-- Main -->
+<main class="flex-fill">
+    <div id="Header_Blog">
+        <h1>Blog</h1>
+    </div>
+    <div>
+        <input aria-label="Search" class="form-control mr-sm-2 fa-align-right" onkeyup="searchBar()"
+               placeholder="Search"
+               type="search"></div>
+    <br>
+    <div class="container">
+        <div class="row" style="color: white">
+            <div class="col text-center">
+                <img alt="Image of Ramiyan" class="img-thumbnail" src="../../../client/Images/learning.png" width="500">
+            </div>
+            <div class="col text-center description" style="display: block;">
+                <h4> Beginner Programming Classes For All Ages! </h4>
+                <p> Embark on an exciting journey into the world of programming with our beginner classes tailored for
+                    all ages! Whether you're a curious youngster, a student eager to explore coding, or an adult looking
+                    to dive into the tech realm, our classes provide a welcoming and accessible introduction to
+                    programming. No prior experience is required; we cover the basics of coding languages in a fun and
+                    interactive way. From creating simple algorithms to building your first programs, our beginner
+                    programming classes offer a supportive environment to nurture your coding skills and ignite a
+                    passion for technology. <a href="">Read More</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</main>
+<!-- Footer -->
+<footer id="site-footer" style="text-align: center; color: white"></footer>
+<script src="../../../client/scripts/main.js"></script>
+<script src="../../../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

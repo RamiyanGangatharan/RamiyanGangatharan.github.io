@@ -1,0 +1,83 @@
+<!--
+Author: Joy Tejada (100883359)
+Date: 2024-01-27
+File Name: contact.html
+Description: This page is used to let the user submit a queries or feedback using a form.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<!-- Title and Style Sheet -->
+<head>
+    <meta charset="UTF-8">
+    <title>Contact</title>
+    <link href="../../../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../../node_modules/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+    <link href="../../../client/content/style.css" rel="stylesheet">
+</head>
+<body class="d-flex flex-column min-vh-100">
+<!-- Header and Nav Bar -->
+<header id="site-header"></header>
+<!-- Main -->
+<main class="flex-fill">
+    <div id="Header_1">
+        <h1>Contact Us</h1>
+        <div class="row justify-content-lg-center g-3">
+        </div>
+        <br>
+    </div>
+    <!-- Form -->
+    <form class="con-lg-6 col-md-10 col-sm-10">
+        <div class="input-group mb-3">
+            <span class="input-group-text">Full Name</span>
+            <input aria-describedby="Full Name" aria-label="Full Name Input" class="form-control" id="fullname"
+                   name="fullname" required type="text">
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text">Email</span>
+            <input aria-describedby="Email Address" aria-label="Email Address Input" class="form-control"
+                   id="emailAddress"
+                   name="emailAddress" required type="email">
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text">Subject</span>
+            <input aria-describedby="Subject" aria-label="Subject Input" class="form-control" id="subject"
+                   name="subject" required type="text">
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text">Your Message</span>
+            <textarea aria-describedby="Message Area" aria-label="Message Area Input" class="form-control" id="message"
+                      name="message" required type="text"></textarea>
+        </div>
+
+        <div class="mb-3 form-check">
+            <input class="form-check-label" id="subscribeCheckbox" name="subscribeCheckbox" type="checkbox">
+            <label class="form-check-label" for="subscribeCheckbox">Subscribe to our Contact List</label>
+        </div>
+        <!-- Button -->
+        <button class="btn btn-primary" id="sendButton" type="submit"> Submit</button>
+    </form>
+
+    <br><br>
+    <form class="con-lg-6 col-md-10 col-sm-10">
+        <div class="input-group mb-3">
+            <span class="input-group-text">Feedback</span>
+            <textarea aria-describedby="Feedback" aria-label="Feedback Input" class="form-control" id="feedback"
+                      name="feedback" required type="text"></textarea>
+        </div>
+
+        <!-- Button -->
+        <button class="btn btn-primary text-center btn-dark" id="feedbackBtn" onclick="AjaxFeedback()"> Submit</button>
+    </form>
+</main>
+
+<footer id="site-footer" style="text-align: center; color: white"></footer>
+<script src="../../../client/scripts/main.js"></script>
+<script src="../../../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
